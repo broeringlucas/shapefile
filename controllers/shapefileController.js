@@ -2,7 +2,7 @@ const shp = require('shapefile');
 const db = require('../config/db');
 const wkt = require('wkt')
 
-shp.open('./shapefile/snv_dividido/icm')
+shp.open('./snv_dividido/icm.shp')
   .then(source => source.read()
     .then(function insertToTable(result) {
       if (result.done) return;
