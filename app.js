@@ -1,5 +1,4 @@
 const express = require('express')
-const shapefile = require('shapefile')
 const app = express()
 const posts = require('./routes/postRoutes')
 
