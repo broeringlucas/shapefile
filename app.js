@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const posts = require('./routes/postRoutes')
+const shapefileReader = require('./routes/shapefileRoute');
 
 app.use(express.json());
 
-app.use('/posts', posts);
+app.use('/shapefile', shapefileReader);
 
 app.use((err, req, res, next) => {
 	console.log(err.stack);

@@ -1,13 +1,9 @@
 const express = require('express');
-const postCotroller = require('../controllers/postController');
-const shapefileCotroller = require('../controllers/shapefileController')
+const shapefileCotroller = require('../controllers/shapefileController');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const router = express.Router();
 
-
-// router.route('/').get(postCotroller.getAllPosts).post(postCotroller.createNewPost);
-
-// router.route('/:id').get(postCotroller.getPostById).delete(postCotroller.deletePostById);
-
-router.route('/').post(shapefileCotroller.uploadShapefile)
+router.route('/').post(upload.single('file'), shapefileCotroller.readShapefile);
 
 module.exports = router;
